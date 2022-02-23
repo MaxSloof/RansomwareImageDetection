@@ -20,6 +20,4 @@ for i, line in enumerate(searchLines):
             famname = f"{k}"
             print(famname)
 
-
-
     continue
