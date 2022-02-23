@@ -28,11 +28,11 @@ for file in os.listdir(wdir):
     if file.endswith(".txt"): # Can be deleted for real
         
         # split the hash and file extension from each other
-        filename = os.path.splitext(file)[0]
+        oldfilename = os.path.splitext(file)[0]
         file_ext = os.path.splitext(file)[1]
 
         # Create unique API request for every hash
-        url = f"https://www.virustotal.com/api/v3/files/{filename}"
+        url = f"https://www.virustotal.com/api/v3/files/{oldfilename}"
         r = requests.request("GET", url, headers=headers)
 
         # Write the response as HTML file
@@ -59,22 +59,28 @@ for file in os.listdir(wdir):
                         index_end = l.find('"', index_start)
                         famname = l[index_start:index_end]
 
+                        # Each ransomware family is added without considering the letter behind the dot
+                        if "." in famname or "!" in famname: 
+                            index_int = famname.find(".")-1
+                            foldername = famname[:index_int]
+                        else: foldername = famname
+
                         # Give every file a unique name based on the iteration
                         newfilename = f"{famname}_{j}"
                         print(newfilename)
 
                         # Add line to ledger
-                        print(f"{newfilename}{file_ext} = {newfilename}{file_ext}", file = open(ledgerpath, "a+"))
+                        print(f"{oldfilename}{file_ext} = {newfilename}{file_ext}", file = open(ledgerpath, "a+"))
 
                         # Rename the hash file name to family name
                         # If directory exists, do not create a new one. If it does not exist, create a new one
-                        if os.path.exists(f"C:/Users/Max/Documents/virus_test/{famname}"):
-                            os.rename(f"C:/Users/Max/Documents/virus_test/{filename}.txt",
-                                  f"C:/Users/Max/Documents/virus_test/{famname}/{newfilename}{file_ext}")
+                        if os.path.exists(f"C:/Users/Max/Documents/virus_test/{foldername}"):
+                            os.rename(f"C:/Users/Max/Documents/virus_test/{oldfilename}.txt",
+                                  f"C:/Users/Max/Documents/virus_test/{foldername}/{newfilename}{file_ext}")
                         else: 
-                            os.makedirs(f"C:/Users/Max/Documents/virus_test/{famname}")
-                            os.rename(f"C:/Users/Max/Documents/virus_test/{filename}.txt",
-                                  f"C:/Users/Max/Documents/virus_test/{famname}/{newfilename}{file_ext}")
+                            os.makedirs(f"C:/Users/Max/Documents/virus_test/{foldername}")
+                            os.rename(f"C:/Users/Max/Documents/virus_test/{oldfilename}.txt",
+                                  f"C:/Users/Max/Documents/virus_test/{foldername}/{newfilename}{file_ext}")
                     continue
                 continue
             continue
