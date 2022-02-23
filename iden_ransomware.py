@@ -40,17 +40,23 @@ for file in os.listdir(wdir):
                     if "result" in l:
                         index_start = l.find("/") + 1
                         index_end = l.find('"', index_start)
-                        k = l[index_start:index_end]
-                        famname = f"{k}_{j}"
-                        print(famname)
+                        famname = l[index_start:index_end]
+                        newfilename = f"{famname}_{j}"
+                        print(newfilename)
 
                         # Add line to ledger
-                        print(f"{filename}{file_ext} = {famname}{file_ext}", file = open(ledgerpath, "a+"))
+                        print(f"{newfilename}{file_ext} = {newfilename}{file_ext}", file = open(ledgerpath, "a+"))
 
 
                         # Rename the hash file name to family name
-                        os.rename(f"C:/Users/Max/Documents/virus_test/{filename}.txt",
-                                  f"C:/Users/Max/Documents/virus_test/{famname}/{famname}{file_ext}")
+                        if os.path.exists(f"C:/Users/Max/Documents/virus_test/{famname}"):
+                            os.rename(f"C:/Users/Max/Documents/virus_test/{filename}.txt",
+                                  f"C:/Users/Max/Documents/virus_test/{famname}/{newfilename}{file_ext}")
+
+                        else: 
+                            os.makedirs(f"C:/Users/Max/Documents/virus_test/{famname}")
+                            os.rename(f"C:/Users/Max/Documents/virus_test/{filename}.txt",
+                                  f"C:/Users/Max/Documents/virus_test/{famname}/{newfilename}{file_ext}")
                     continue
                 continue
             continue
