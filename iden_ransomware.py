@@ -12,7 +12,7 @@ headers = {"Accept": "application/json",
            "x-apikey": "f9f8fb829768faaa42dfe6d5997ad73f517aa6af08f0255a84544f9a519bed73"}
 
 # To name each file uniquely
-j = 0
+j = input("starting value ...")
 
 # Go through each file in the directory
 for file in os.listdir(wdir):
@@ -22,8 +22,7 @@ for file in os.listdir(wdir):
 
     # If there have been more than 19,000 API requests, stop the loop.
     # The academic API from VirusTotal has an API limit of 20,000
-    if j > 3:
-        break
+    if j > 1: break # stop after j iterations
 
     if file.endswith(".txt"): # Can be deleted for real
         
@@ -60,8 +59,11 @@ for file in os.listdir(wdir):
                         famname = l[index_start:index_end]
 
                         # Each ransomware family is added without considering the letter behind the dot
-                        if "." in famname or "!" in famname: 
-                            index_int = famname.find(".")-1
+                        if "." in famname: 
+                            index_int = famname.find(".")
+                            foldername = famname[:index_int]
+                        elif "!" in famname: 
+                            index_int = famname.find("!")
                             foldername = famname[:index_int]
                         else: foldername = famname
 
@@ -74,13 +76,13 @@ for file in os.listdir(wdir):
 
                         # Rename the hash file name to family name
                         # If directory exists, do not create a new one. If it does not exist, create a new one
-                        if os.path.exists(f"C:/Users/Max/Documents/virus_test/{foldername}"):
-                            os.rename(f"C:/Users/Max/Documents/virus_test/{oldfilename}.txt",
-                                  f"C:/Users/Max/Documents/virus_test/{foldername}/{newfilename}{file_ext}")
+                        if os.path.exists(f"C:/Users/Max/Documents/virus_test/{foldername}"): # Destination path
+                            os.rename(f"C:/Users/Max/Documents/virus_test/{oldfilename}{file_ext}", # Origin path
+                                  f"C:/Users/Max/Documents/virus_test/{foldername}/{newfilename}{file_ext}") # Destination path
                         else: 
-                            os.makedirs(f"C:/Users/Max/Documents/virus_test/{foldername}")
-                            os.rename(f"C:/Users/Max/Documents/virus_test/{oldfilename}.txt",
-                                  f"C:/Users/Max/Documents/virus_test/{foldername}/{newfilename}{file_ext}")
+                            os.makedirs(f"C:/Users/Max/Documents/virus_test/{foldername}") # Destination path
+                            os.rename(f"C:/Users/Max/Documents/virus_test/{oldfilename}{file_ext}", # Origin path
+                                  f"C:/Users/Max/Documents/virus_test/{foldername}/{newfilename}{file_ext}") # Destination path
                     continue
                 continue
             continue
