@@ -4,7 +4,7 @@ from math import sqrt, ceil
 import cv2
 import os
 
-dir = "/media/osboxes/thesis_benign/benign-net" # Directory of samples
+dir = "C:/Users/Max/Documents/executables" # Directory of samples
 os.chdir(dir)
 directory = os.fsencode(dir)
 
@@ -43,7 +43,7 @@ for file in os.listdir(directory):
 
         # Save image
         imagename= os.path.splitext(file)[0]
-        cv2.imwrite(f"/media/osboxes/thesis_benign/Images/{imagename}.png", im)
+        cv2.imwrite(f"C:/Users/Max/Documents/images/{imagename}.png", im)
 
         
         # Display image
