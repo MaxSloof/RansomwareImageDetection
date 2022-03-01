@@ -9,8 +9,8 @@ import os
 # This script does not fix the resolution of the grayscale images
 
 ##### CHANGE #######
-inputdir = "C:/Users/Max/Documents/executables" # Directory of samples
-outputdir = "C:/Users/Max/Documents/images/" # Directory where the samples need to be stored (with "/" at the end)
+inputdir = "path" # Directory of samples (without "/" at the end)
+outputdir = "path" # Directory where the samples need to be stored (with "/" at the end)
 
 #################################
 

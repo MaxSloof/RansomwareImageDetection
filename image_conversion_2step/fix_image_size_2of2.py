@@ -7,8 +7,8 @@ import os
 # THIS SCRIPT DOES NOT CHANGE THE FULL RESOLUTION IMAGES
 
 ########## CHANGE ################
-inputdir = "C:/Users/Max/Documents/images/" # Directory where the full resolution images are stored
-outputdir = "C:/Users/Max/Documents/images256/" # Directory where the fixed resolution images need to be stored (with "/" at the end)
+inputdir = "path" # Directory where the full resolution images are stored (without "/" at the end)
+outputdir = "path" # Directory where the fixed resolution images need to be stored (with "/" at the end)
 width = 256 # image width
 height = 256 # image height
 

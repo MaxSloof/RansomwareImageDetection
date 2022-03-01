@@ -8,8 +8,8 @@ import os
 # THIS SCRIPT DOES NOT STORE THE FULL RESOLUTION IMAGES
 
 ##### CHANGE #######
-inputdir = "C:/Users/Max/Documents/executables" # Directory of samples
-outputdir = "C:/Users/Max/Documents/images/" # Directory where the samples need to be stored (with "/" at the end)
+inputdir = "path" # Directory of samples (without "/" at the end)
+outputdir = "path" # Directory where the samples need to be stored (with "/" at the end)
 width = 256 # image width
 height = 256 # image height
 
