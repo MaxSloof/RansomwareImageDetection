@@ -2,20 +2,24 @@ import requests
 import os
 import numpy
 
+# This script goes through a list of ransomware samples (not in specific folders) with a hash string as their filename
+# It compares the hash value with the VirusTotal database. 
+# The Microsoft report for that sample is retrieved and the name of the ransomware family + a counter is given to the sample. 
+
 # Set wd
-wdir = "C:/Users/Max/Documents/virus_test"
-os.chdir(wdir)
-ledgerpath = "C:/Users/Max/Documents/ledger.txt"
+dir = "path"                   # Path to where the ransomware files with hash as filename are located (without final "/")
+os.chdir(dir)                  # The files should not be in folders 
+ledgerpath = "path/ledger.txt" # Path to ledger text document
 
 # Includes API key
 headers = {"Accept": "application/json",
-           "x-apikey": "f9f8fb829768faaa42dfe6d5997ad73f517aa6af08f0255a84544f9a519bed73"}
+           "x-apikey": "key"} # Your VirusTotal API key
 
 # To name each file uniquely
 j = input("starting value ...")
 
 # Go through each file in the directory
-for file in os.listdir(wdir):
+for file in os.listdir(dir):
 
     # Iterate j so every file can get unique name
     j = j + 1

@@ -1,9 +1,11 @@
-
 import numpy as np
 from math import sqrt, ceil
 import cv2
 import os
 
+
+# This script converts a file into a grayscale image with a fixed resolution 
+# THIS SCRIPT DOES NOT STORE THE FULL RESOLUTION IMAGES
 
 ##### CHANGE #######
 inputdir = "C:/Users/Max/Documents/executables" # Directory of samples

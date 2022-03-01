@@ -5,6 +5,9 @@ import cv2
 import os
 
 
+# This script converts a file into a grayscale image with its full resolution
+# This script does not fix the resolution of the grayscale images
+
 ##### CHANGE #######
 inputdir = "C:/Users/Max/Documents/executables" # Directory of samples
 outputdir = "C:/Users/Max/Documents/images/" # Directory where the samples need to be stored (with "/" at the end)
@@ -36,7 +39,7 @@ for root, dirs, files in os.walk(inputdir):
         d = np.frombuffer(data, dtype=np.uint8)
 
         # Assume image shape should be close to square
-        sqrt_len = int(ceil(sqrt(data_len)))  # Compute square toot and round up
+        sqrt_len = int(ceil(sqrt(data_len)))  # Compute square root and round up
 
         # Requiered length in bytes.
         new_len = sqrt_len * sqrt_len
@@ -45,7 +48,6 @@ for root, dirs, files in os.walk(inputdir):
         pad_len = new_len - data_len
 
         # Pad d with zeros at the end.
-        # padded_d = np.pad(d, (0, pad_len))
         padded_d = np.hstack((d, np.zeros(pad_len, np.uint8)))
 
         # Reshape 1D array into 2D array with sqrt_len pad_len x sqrt_len (im is going to be a Grayscale image).
