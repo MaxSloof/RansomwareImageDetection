@@ -8,9 +8,12 @@ import os
 ##### CHANGE #######
 inputdir = "C:/Users/Max/Documents/executables" # Directory of samples
 outputdir = "C:/Users/Max/Documents/images/" # Directory where the samples need to be stored (with "/" at the end)
+width = 256 # image width
+height = 256 # image height
 
+interpolation = cv2.INTER_CUBIC # interpolation algorithms
 #################################
-
+dim = (width, height)
 j = 0
 
 # Go through every file in directory
@@ -48,6 +51,13 @@ for root, dirs, files in os.walk(inputdir):
 
         # Save image to correct folder within directory
         cv2.imwrite(f"{outputdir}{filename}.png", im)
+
+        # Read image
+        img = cv2.imread(f"{outputdir}{filename}.png")
+
+        # Fix image size
+        resized = cv2.resize(img, dim, interpolation=interpolation)
+        cv2.imwrite(f"{outputdir}{filename}.png", resized)
 
         # Remove index after file for creating folders
         if "_" in filename:
