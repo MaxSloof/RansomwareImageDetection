@@ -11,11 +11,30 @@ directory = os.fsencode(dir)
 for root, dirs, files in os.walk(dir): 
     for f in files:
         filename = os.fsdecode(f)
+<<<<<<< Updated upstream
         file = os.path.join(root, filename)
         if file.endswith(".exe"):
             # Read the whole file to data
             with open(file, 'rb') as binary_file:
                 data = binary_file.read()
+=======
+       
+        if ".exe" in filename:
+            index = filename.find(".exe")
+            filename = filename[:index] 
+
+        file = os.path.join(root, f)
+            
+        # Read the whole file to data
+        with open(file, 'rb') as binary_file:
+            data = binary_file.read()
+        binary_file.close()
+            
+        # Read the whole file to data
+        with open(file, 'rb') as binary_file:
+            data = binary_file.read()
+        binary_file.close()
+>>>>>>> Stashed changes
 
             # bin_len = 480*480
             # data = data[:bin_len]
