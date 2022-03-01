@@ -18,6 +18,9 @@ interpolation = cv2.INTER_CUBIC # interpolation algorithms
 dim = (width, height)
 j = 0
 
+if not os.path.exists(outputdir):
+    os.makedirs(outputdir)
+
 # Go through every file in directory
 for root, dirs, files in os.walk(inputdir): 
     for f in files:
