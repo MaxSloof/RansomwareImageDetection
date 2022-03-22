@@ -1,7 +1,7 @@
 import os
 
 # Command for Terminal - Copy underlying line #
-# python3 /Users/maxsloof/Github/data_acq/misc/kaggle_local_data_transfer_mac.py    
+# python3 /Users/maxsloof/Github/data_acq/misc/kaggle_local_data_transfer_mac.py
 
 
 # Ask what notebook you want to save the latest version of
@@ -9,7 +9,12 @@ print("What notebook do you want to save the latest version of?")
 nt_type = input()
 print("--------------")
 
-dir = "/Users/maxsloof/Github/data_acq/kaggle_output"
+if nt_type[:5] == "dcgan":
+    type_dir = "dcgan_kaggle"
+elif nt_type[:3] == "cnn":
+    type_dir = "cnn_kaggle"
+
+dir = f"/Users/maxsloof/Github/data_acq/{type_dir}"
 vnum = 1
 # Find the latest version number
 file_exists = []
@@ -37,8 +42,8 @@ print(f"New folder name: {nt_type}-v{new_vnum:03}")
 print("--------------")
 
 # Create new folder with the name of the notebook and the version number
-new_dir = f"/Users/maxsloof/Github/data_acq/kaggle_output/{nt_type}-v{new_vnum:03}"
-script_dir = "/Users/maxsloof/Github/data_acq/dcgan_kaggle"
+new_dir = f"/Users/maxsloof/Github/data_acq/{type_dir}_output/{nt_type}-v{new_vnum:03}"
+script_dir = f"/Users/maxsloof/Github/data_acq/{type_dir}-v{new_vnum:03}"
 os.mkdir(new_dir)
 
 # Download checkpoints from latest run
