@@ -6,13 +6,21 @@ import os
 
 # Ask what notebook you want to save the latest version of
 print("What notebook do you want to save the latest version of?")
-nt_type = input()
+print("CNN (0) / DCGAN (1) / DCGAN-Classification (2)")
+userchoice = int(input("Enter number: "))
 print("--------------")
 
-if nt_type[:5] == "dcgan":
-    type_dir = "dcgan_kaggle"
-elif nt_type[:3] == "cnn":
+if userchoice == 0:
+    nt_type = "cnn-kaggle"
     type_dir = "cnn_kaggle"
+
+elif userchoice == 1:
+    nt_type = "dcgan-kaggle"
+    type_dir = "dcgan_kaggle"
+
+elif userchoice == 2:
+    nt_type = "dcgan-classification-kaggle"
+    type_dir = "dcgan_classification_kaggle"
 
 dir = f"/Users/maxsloof/Github/data_acq/{type_dir}"
 vnum = 1
@@ -20,8 +28,7 @@ vnum = 1
 file_exists = []
 
 for files in os.listdir(dir):
-    type = files[:-5]
-    if type == nt_type: 
+    if nt_type in files: 
         vnum = max(vnum, int(files[-3:]))
         new_vnum = vnum + 1
         file_exists.append(True)
@@ -42,11 +49,9 @@ print(f"New folder name: {nt_type}-v{new_vnum:03}")
 print("--------------")
 
 # Create new folder with the name of the notebook and the version number
-new_dir = f"/Users/maxsloof/Github/data_acq/{type_dir}_output/{nt_type}-v{new_vnum:03}"
-script_dir = f"/Users/maxsloof/Github/data_acq/{type_dir}-v{new_vnum:03}"
+new_dir = f"/Users/maxsloof/Github/data_acq/{type_dir}/{nt_type}-v{new_vnum:03}"
 os.mkdir(new_dir)
 
 # Download checkpoints from latest run
 os.system(f"kaggle kernels pull maxsloof/{nt_type} -p {new_dir} -m")
-os.system(f"kaggle kernels pull maxsloof/{nt_type} -p {script_dir} -m")
 os.system(f"kaggle kernels output maxsloof/{nt_type} -p {new_dir}")
