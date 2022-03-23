@@ -12,15 +12,18 @@ print("--------------")
 
 if userchoice == 0:
     nt_type = "cnn-kaggle"
-    type_dir = "cnn_kaggle"
+    type_dir = "cnn"
+    search_file = "cnn"
 
 elif userchoice == 1:
     nt_type = "dcgan-kaggle"
-    type_dir = "dcgan_kaggle"
-
+    type_dir = "dcgan"
+    search_file = "dcgan"
+    
 elif userchoice == 2:
     nt_type = "dcgan-classification-kaggle"
-    type_dir = "dcgan_classification_kaggle"
+    type_dir = "dcgan_classification"
+    search_file = "dcgan-classification"
 
 dir = f"/Users/maxsloof/Github/data_acq/{type_dir}"
 vnum = 1
@@ -28,7 +31,7 @@ vnum = 1
 file_exists = []
 
 for files in os.listdir(dir):
-    if nt_type in files: 
+    if search_file in files: 
         vnum = max(vnum, int(files[-3:]))
         new_vnum = vnum + 1
         file_exists.append(True)
