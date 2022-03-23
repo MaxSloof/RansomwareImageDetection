@@ -1,0 +1,7 @@
+1. First, make sure the 'thesis-data' AND 'checkpoint' data (for the DCGAN-classification or DCGAN) is added to the notebook before you run the model. 
+2. Write down all the specific elements of this model at the top of the notebook
+
+3. When you commit the model, you need to save and run -> advanced settings -> 'always save all output'. 
+4. Always use the GitHub repo as reference to the latest files. Textual changes might have been made to the Kaggle notebooks in the GitHub repo. 
+
+5. After the model is done in Kaggle, run the model script to the pull the notebook and the output files. Beware that it might not download all files from a given output/working folder. E.g. number of images that it pulls stops at epoch 49. You should still be able to download the output for every version of a notebook later. 
