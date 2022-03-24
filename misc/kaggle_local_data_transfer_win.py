@@ -4,7 +4,7 @@ from plyer import notification
 import time
 
 # Command for Terminal - Copy underlying line #
-# python3 /Users/Max/Documents/GitHub/misc/kaggle_local_data_transfer_win.py
+# python /Users/Max/Documents/GitHub/misc/kaggle_local_data_transfer_win.py
 
 # Ask what notebook you want to save the latest version of
 print("What notebook do you want to save the latest version of?")
