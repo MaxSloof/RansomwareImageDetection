@@ -1,5 +1,6 @@
 1. First, make sure the 'thesis-data' AND 'checkpoint' data (for the DCGAN-classification or DCGAN) is added to the notebook before you run the model. 
-2. Write down all the specific elements of this model at the top of the notebook
+2. Write down all the specific elements of this model at the top of the notebook. 
+3. Check whether the computation environment is correctly set
 
 3. When you commit the model, you need to save and run -> advanced settings -> 'always save all output'. 
 4. Always use the GitHub repo as reference to the latest files. Textual changes might have been made to the Kaggle notebooks in the GitHub repo. 
