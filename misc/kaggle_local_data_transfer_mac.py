@@ -1,4 +1,7 @@
 import os
+import kaggle
+import time
+from plyer import notification
 
 # Command for Terminal - Copy underlying line #
 # python3 /Users/maxsloof/Github/data_acq/misc/kaggle_local_data_transfer_mac.py
@@ -25,6 +28,34 @@ elif userchoice == 2:
     type_dir = "dcgan_classification"
     search_file = "dcgan-classification"
 
+status = str(kaggle.api.kernel_status(user_name="maxsloof", kernel_slug=nt_type))
+
+while "queued" in status:
+    print("Notebook still queued")
+    time.sleep(30)
+    status = str(kaggle.api.kernel_status(user_name="maxsloof", kernel_slug= nt_type))
+    
+while "running" in status:
+    print("Notebook still running")
+    time.sleep(30)
+    status = str(kaggle.api.kernel_status(user_name="maxsloof", kernel_slug= nt_type))
+
+#if "complete" in status:
+#    notification.notify(
+#        title=f"{nt_type} notebook has finished",
+#        message=f"The {nt_type} notebook has been completed on Kaggle. The output will now be saved to the a new folder in the GitHub directory.",
+#        timeout = 30
+#    )
+
+if "error" in status:
+    print("Error encountered!")
+#    notification.notify(
+#        title=f"{nt_type} notebook encountered error",
+#        message=f"The {nt_type} notebook has encountered an error on Kaggle. The output will now be saved to the a new folder in the GitHub directory.",
+#        timeout = 30
+#    )
+
+
 dir = f"/Users/maxsloof/Github/data_acq/{type_dir}"
 vnum = 1
 # Find the latest version number
@@ -32,9 +63,13 @@ file_exists = []
 
 for files in os.listdir(dir):
     if search_file in files: 
-        vnum = max(vnum, int(files[-3:]))
-        new_vnum = vnum + 1
-        file_exists.append(True)
+        filename = os.path.splitext(files)[0]
+        try:
+            vnum = max(vnum, int(filename[-3:]))
+            new_vnum = vnum + 1
+            file_exists.append(True)
+        except:
+            continue
     else: 
         file_exists.append(False)
 

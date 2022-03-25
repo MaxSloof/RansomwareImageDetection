@@ -1,8 +1,8 @@
 {
-  "id": "code/maxsloof/cnn-kaggle",
-  "id_no": 25603905,
-  "title": "cnn-kaggle",
-  "code_file": "cnn-kaggle.ipynb",
+  "id": "code/maxsloof/dcgan-classification-kaggle",
+  "id_no": 25646390,
+  "title": "dcgan-classification-kaggle",
+  "code_file": "dcgan-classification-kaggle.ipynb",
   "language": "python",
   "kernel_type": "notebook",
   "is_private": true,
