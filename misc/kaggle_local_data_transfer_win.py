@@ -29,11 +29,16 @@ elif userchoice == 2:
 
 
 status = str(kaggle.api.kernel_status(user_name="maxsloof", kernel_slug=nt_type))
+
+while "queued" in status:
+    print("Notebook still queued")
+    time.sleep(30)
+    status = str(kaggle.api.kernel_status(user_name="maxsloof", kernel_slug= nt_type))
+    
 while "running" in status:
     print("Notebook still running")
     time.sleep(30)
     status = str(kaggle.api.kernel_status(user_name="maxsloof", kernel_slug= nt_type))
-
 
 if "complete" in status:
     notification.notify(

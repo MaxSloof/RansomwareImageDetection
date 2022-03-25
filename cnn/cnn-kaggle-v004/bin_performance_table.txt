@@ -3,8 +3,8 @@
 +----------------------------------+-------------+
 | Metric                           | Performance |
 +----------------------------------+-------------+
-| True Positive Rate               | 0.9749      |
-| Accuracy                         | 0.9815      |
-| F1 Score                         | 0.9827      |
-| Matthews Correlation Coefficient | 0.963       |
+| True Positive Rate               | 0.9806      |
+| Accuracy                         | 0.9838      |
+| F1 Score                         | 0.9847      |
+| Matthews Correlation Coefficient | 0.9675      |
 +----------------------------------+-------------+
