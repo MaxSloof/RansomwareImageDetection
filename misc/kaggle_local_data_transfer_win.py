@@ -8,7 +8,7 @@ import time
 
 # Ask what notebook you want to save the latest version of
 print("What notebook do you want to save the latest version of?")
-print("CNN (0) / DCGAN (1) / DCGAN-Classification (2)")
+print("CNN (0) / DCGAN (1) / DCGAN-Classification (2) / ResNet (3) / DenseNet (4)")
 userchoice = int(input("Enter number: "))
 print("--------------")
 
@@ -26,7 +26,16 @@ elif userchoice == 2:
     nt_type = "dcgan-classification-kaggle"
     type_dir = "dcgan_classification"
     search_file = "dcgan-classification"
+    
+elif userchoice == 3:
+    nt_type = "ResNet-kaggle"
+    type_dir = "ResNet"
+    search_file = "ResNet"
 
+elif userchoice == 4:
+    nt_type = "DenseNet-kaggle"
+    type_dir = "DenseNet"
+    search_file = "DenseNet"
 
 status = str(kaggle.api.kernel_status(user_name="maxsloof", kernel_slug=nt_type))
 
@@ -65,9 +74,13 @@ file_exists = []
 
 for files in os.listdir(dir):
     if search_file in files: 
-        vnum = max(vnum, int(files[-3:]))
-        new_vnum = vnum + 1
-        file_exists.append(True)
+        filename = os.path.splitext(files)[0]
+        try:
+            vnum = max(vnum, int(filename[-3:]))
+            new_vnum = vnum + 1
+            file_exists.append(True)
+        except:
+            continue
     else: 
         file_exists.append(False)
 
