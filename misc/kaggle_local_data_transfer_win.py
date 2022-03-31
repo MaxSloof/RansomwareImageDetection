@@ -21,7 +21,7 @@ if userchoiceOS == 0:
 
 # Ask what notebook you want to save the latest version of
 print("What notebook do you want to save the latest version of?")
-print("CNN (0) / DCGAN (1) / DCGAN-Classification (2) / ResNet (3) / DenseNet (4)")
+print("CNN (0) / DCGAN (1) / DCGAN-Classification (2) / ResNet (3) / DenseNet (4) / CGAN (5) ")
 userchoice = int(input("Enter number: "))
 print("--------------")
 
@@ -50,6 +50,11 @@ elif userchoice == 4:
     nt_type = "DenseNet-kaggle"
     type_dir = "DenseNet"
     search_file = "DenseNet"
+
+elif userchoice == 5:
+    nt_type = "cgan-kaggle"
+    type_dir = "conditional_gan"
+    search_file = "cgan"
 
 # Retrieve the notebook status from Kaggle
 status = str(kaggle.api.kernel_status(user_name="maxsloof", kernel_slug=nt_type))
