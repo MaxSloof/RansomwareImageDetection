@@ -1,4 +1,4 @@
-This GitHub repo was initially set up for my master thesis. 
+# This GitHub repo was initially set up for my master thesis. 
 
 iden_ransomware_VT.py allows you to lookup the hash filename of an unclassified folder of ransomware samples within the VirusTotal database. It will change the filename to the ransomware family as labelled by Microsoft + a counter, to ensure that every image has executable has a unique filename.
 
