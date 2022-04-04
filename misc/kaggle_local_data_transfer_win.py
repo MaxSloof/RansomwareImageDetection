@@ -21,7 +21,7 @@ if userchoiceOS == 0:
 
 # Ask what notebook you want to save the latest version of
 print("What notebook do you want to save the latest version of?")
-print("CNN (0) / DCGAN (1) / DCGAN-Classification (2) / ResNet (3) / DenseNet (4) / CGAN (5) ")
+print("CNN (0) / DCGAN (1) / DCGAN-Classification (2) / ResNet (3) / DenseNet (4) / CGAN (5) / ResNet-CGAN (6) / DenseNet-CGAN (7)")
 userchoice = int(input("Enter number: "))
 print("--------------")
 
@@ -55,6 +55,17 @@ elif userchoice == 5:
     nt_type = "cgan-kaggle"
     type_dir = "conditional_gan"
     search_file = "cgan"
+
+elif userchoice == 6:
+    nt_type = "resnet-cgan-kaggle"
+    type_dir = "ResNet"
+    search_file = "ResNet"
+
+elif userchoice == 7:
+    nt_type = "DenseNet-cgan-kaggle"
+    type_dir = "DenseNet"
+    search_file = "DenseNet"
+
 
 # Retrieve the notebook status from Kaggle
 status = str(kaggle.api.kernel_status(user_name="maxsloof", kernel_slug=nt_type))
@@ -102,20 +113,19 @@ vnum = 1
 file_exists = []
 
 for files in os.listdir(dir):
-    if search_file in files: 
-        filename = os.path.splitext(files)[0]
-        try:
-            vnum = max(vnum, int(filename[-3:]))
-            new_vnum = vnum + 1
-            file_exists.append(True)
-        except:
-            continue
-    else: 
-        file_exists.append(False)
+    filename = os.path.splitext(files)[0]
+    try:
+        vnum = max(vnum, int(filename[-3:]))
+        vnum = vnum + 1
+        file_exists.append(True)
+    except:
+        continue
+else: 
+    file_exists.append(False)
 
 # If this is the first notebook you want to save, a new folder will be created with version #001
 if sum(file_exists) == 0:
-    new_vnum = 1
+    vnum = 1
     print("No matches found")
 
 else: 
@@ -123,14 +133,14 @@ else:
     print("--------------")
 
 # Print new folder name
-print(f"New folder name: {nt_type}-v{new_vnum:03}")
+print(f"New folder name: {nt_type}-v{vnum:03}")
 print("--------------")
 
 # Create new folder with the name of the notebook and the version number
 if userchoiceOS == 0:
-    new_dir = f"/Users/Max/Documents/Github/{type_dir}/{nt_type}-v{new_vnum:03}"
+    new_dir = f"/Users/Max/Documents/Github/{type_dir}/{nt_type}-v{vnum:03}"
 if userchoiceOS == 1:
-    new_dir = f"/Users/maxsloof/Github/data_acq/{type_dir}/{nt_type}-v{new_vnum:03}"
+    new_dir = f"/Users/maxsloof/Github/data_acq/{type_dir}/{nt_type}-v{vnum:03}"
 
 os.mkdir(new_dir)
 
