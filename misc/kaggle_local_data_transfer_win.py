@@ -7,7 +7,7 @@ import time
 # python /Users/Max/Documents/GitHub/misc/kaggle_local_data_transfer_win.py
 
 # MacOS line:
-# python3 /Users/maxsloof/Github/data_acq/misc/kaggle_local_data_transfer_mac.py
+# python3 /Users/maxsloof/Github/data_acq/misc/kaggle_local_data_transfer_win.py
 
 # Ask whether you are on MacOS or Windows
 print("\n")
@@ -108,15 +108,15 @@ if userchoiceOS == 0:
 if userchoiceOS == 1:
     dir = f"/Users/maxsloof/Github/data_acq/{type_dir}"
 
-vnum = 1
+vnum = 0
 # Find the latest version number
 file_exists = []
 
 for files in os.listdir(dir):
+    print("VNUM IS: ", vnum)
     filename = os.path.splitext(files)[0]
     try:
         vnum = max(vnum, int(filename[-3:]))
-        vnum = vnum + 1
         file_exists.append(True)
     except:
         continue
@@ -131,6 +131,7 @@ if sum(file_exists) == 0:
 else: 
     print(f"{sum(file_exists)} matches(es) found")
     print("--------------")
+    vnum  = vnum + 1
 
 # Print new folder name
 print(f"New folder name: {nt_type}-v{vnum:03}")
