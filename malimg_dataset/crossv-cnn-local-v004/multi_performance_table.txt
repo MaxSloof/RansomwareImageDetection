@@ -1,0 +1,7 @@
++--------------------------------------------+
+|        Performance of CNN on Malimg        |
+| Metric        | Performance | St.Deviation |
+| M-Class       |             |              |
+| Acc           | 0.9727      | 0.0062       |
+| Loss          | 0.0865      | 0.0113       |
+| Macro F1      | 0.9156      | 0.0066       |
