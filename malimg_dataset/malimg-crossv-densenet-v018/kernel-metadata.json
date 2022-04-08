@@ -1,0 +1,19 @@
+{
+  "id": "code/maxsloof/malimg-crossv-densenet",
+  "id_no": 26104333,
+  "title": "malimg-crossv-densenet",
+  "code_file": "malimg-crossv-densenet.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "keywords": [
+    "gpu"
+  ],
+  "dataset_sources": [
+    "datasets/maxsloof/malimgdataset"
+  ],
+  "kernel_sources": [],
+  "competition_sources": []
+}
