@@ -1,13 +1,15 @@
 import os
+from re import search
 import kaggle
 import time
 
 # Command for Terminal - Copy underlying line #
 # Windows line:
-# python /Users/Max/Documents/GitHub/misc/kaggle_local_data_transfer_win.py
+# cd C:\Users\Max\OneDrive - Erasmus University Rotterdam\Documents\GitHub\misc
+# python misc/kaggle_local_data_transfer.py
 
 # MacOS line:
-# python3 /Users/maxsloof/Github/data_acq/misc/kaggle_local_data_transfer_win.py
+# python3 /Users/maxsloof/Github/data_acq/misc/kaggle_local_data_transfer.py
 
 # Ask whether you are on MacOS or Windows
 print("\n")
@@ -21,7 +23,7 @@ if userchoiceOS == 0:
 
 # Ask what notebook you want to save the latest version of
 print("What notebook do you want to save the latest version of?")
-print("CNN (0) / DCGAN (1) / DCGAN-Classification (2) / ResNet (3) / DenseNet (4) / CGAN (5) / ResNet-CGAN (6) / DenseNet-CGAN (7) / Malimg-DenseNet-CGAN (8) / Malimg-DenseNet (9)")
+print("CNN (0) / DCGAN (1) / DCGAN-Classification (2) / ResNet (3) / DenseNet (4) / CGAN (5) / ResNet-CGAN (6) / DenseNet-CGAN (7) / Malimg-DenseNet-CGAN (8) / Malimg-DenseNet (9) / Malimg-cgan")
 userchoice = int(input("Enter number: "))
 print("--------------")
 
@@ -76,6 +78,11 @@ elif userchoice == 9:
     type_dir = "malimg_dataset"
     search_file = "DenseNet"
 
+elif userchoice == 10:
+    nt_type = 'malimg-cgan'
+    type_dir = 'malimg_dataset'
+    search_file = 'cgan'
+
 
 # Retrieve the notebook status from Kaggle
 status = str(kaggle.api.kernel_status(user_name="maxsloof", kernel_slug=nt_type))
@@ -114,7 +121,7 @@ if "error" in status:
 
 # Set right directory based on OS
 if userchoiceOS == 0:
-    dir = f"/Users/Max/Documents/GitHub/{type_dir}"
+    dir = f" C:/Users/Max/OneDrive - Erasmus University Rotterdam/Documents/GitHub/{type_dir}"
 if userchoiceOS == 1:
     dir = f"/Users/maxsloof/Github/data_acq/{type_dir}"
 
@@ -148,7 +155,7 @@ print("--------------")
 
 # Create new folder with the name of the notebook and the version number
 if userchoiceOS == 0:
-    new_dir = f"/Users/Max/Documents/Github/{type_dir}/{nt_type}-v{vnum:03}"
+    new_dir = f"C:/Users/Max/OneDrive - Erasmus University Rotterdam/Documents/GitHub/{type_dir}/{nt_type}-v{vnum:03}"
 if userchoiceOS == 1:
     new_dir = f"/Users/maxsloof/Github/data_acq/{type_dir}/{nt_type}-v{vnum:03}"
 

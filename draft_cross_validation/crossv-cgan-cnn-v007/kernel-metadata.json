@@ -1,0 +1,20 @@
+{
+  "id": "code/maxsloof/crossv-cgan-cnn",
+  "id_no": 26103752,
+  "title": "crossv-cgan-cnn",
+  "code_file": "crossv-cgan-cnn.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "keywords": [
+    "scheduled"
+  ],
+  "dataset_sources": [
+    "datasets/maxsloof/cganlocalv007",
+    "datasets/maxsloof/thesis-data"
+  ],
+  "kernel_sources": [],
+  "competition_sources": []
+}
