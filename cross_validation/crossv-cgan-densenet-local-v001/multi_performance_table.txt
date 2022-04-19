@@ -1,0 +1,13 @@
++---------------------------------------+
+|      Performance of CGAN-DenseNet     |
+| Metric   | Performance | St.Deviation |
+| M-Class  |             |              |
+| Acc      | 0.9649      | 0.0054       |
+| Loss     | 0.1856      | 0.0349       |
+| Macro F1 | 0.9067      | 0.0101       |
+|          |             |              |
+| B-Class  |             |              |
+| TPR      | 0.9881      | 0.0027       |
+| Acc      | 0.9919      | 0.0014       |
+| F1       | 0.9923      | 0.0013       |
+| MCC      | 0.9837      | 0.0028       |
