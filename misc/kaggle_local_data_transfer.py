@@ -5,8 +5,7 @@ import time
 
 # Command for Terminal - Copy underlying line #
 # Windows line:
-# cd C:\Users\Max\OneDrive - Erasmus University Rotterdam\Documents\GitHub\misc
-# python misc/kaggle_local_data_transfer.py
+# python C:/Users/Max/Documents/GitHub/misc/kaggle_local_data_transfer.py
 
 # MacOS line:
 # python3 /Users/maxsloof/Github/data_acq/misc/kaggle_local_data_transfer.py
@@ -79,7 +78,7 @@ elif userchoice == 9:
     search_file = "DenseNet"
 
 elif userchoice == 10:
-    nt_type = 'malimg-cgan'
+    nt_type = 'malimg-cgan-ckpt'
     type_dir = 'malimg_dataset'
     search_file = 'cgan'
 
@@ -121,7 +120,7 @@ if "error" in status:
 
 # Set right directory based on OS
 if userchoiceOS == 0:
-    dir = f" C:/Users/Max/OneDrive - Erasmus University Rotterdam/Documents/GitHub/{type_dir}"
+    dir = f"C:/Users/Max/Documents/GitHub/{type_dir}"
 if userchoiceOS == 1:
     dir = f"/Users/maxsloof/Github/data_acq/{type_dir}"
 
@@ -155,7 +154,7 @@ print("--------------")
 
 # Create new folder with the name of the notebook and the version number
 if userchoiceOS == 0:
-    new_dir = f"C:/Users/Max/OneDrive - Erasmus University Rotterdam/Documents/GitHub/{type_dir}/{nt_type}-v{vnum:03}"
+    new_dir = f"C:/Users/Max/Documents/GitHub/{type_dir}/{nt_type}-v{vnum:03}"
 if userchoiceOS == 1:
     new_dir = f"/Users/maxsloof/Github/data_acq/{type_dir}/{nt_type}-v{vnum:03}"
 
