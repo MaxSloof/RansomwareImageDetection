@@ -10,8 +10,8 @@ import os
 ##### CHANGE #######
 inputdir = "path" # Directory of samples (without "/" at the end)
 outputdir = "path" # Directory where the samples need to be stored (with "/" at the end)
-width = 256 # image width
-height = 256 # image height
+width = 128 # image width
+height = 128 # image height
 
 interpolation = cv2.INTER_CUBIC # interpolation algorithms
 #################################
