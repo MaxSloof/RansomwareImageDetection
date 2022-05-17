@@ -4,11 +4,12 @@ iden_ransomware_VT.py allows you to lookup the hash filename of an unclassified 
 
 The image_conversion folders convert the labelled files to grayscale images. The 1-step conversion does not save the full resolution images, whereas as the 2-step conversion does.
 
-The CNN, DCGAN, DCGAN classification, DenseNet, and ResNet folder all include iterations of their respective Neural Network models. To improve the performance of the NN models, I tried different versions to see which would lead to the highest performance. For my thesis I aim to compare the CNN model to another model, where I used a GAN to generate fake images and then a CNN-based model to see whether I could improve performance that way. 
+The folders starting with 'experiments_' are all the different versions that I have gone through to arrive at the final models. The final CGAN model can be found under 'final_model_Conditional_GAN'. The final classification models can be found under 'final_models_cross_validation'. 
 
 The outdated_* folders include my first attempts at a GAN and CNN, but should be ignored. 
 
 The template_nn folder is used to add additional features, graphs, and other misc. things. I can subsequently use those in Kaggle and on my local machine. 
 
 The Misc. folder includes scripts that allow me to retrieve the output files from any Kaggle run. 
+The misc_experiments folder include a learning curve where I try to see how large the training set needs to be to achieve good performance. 
 
