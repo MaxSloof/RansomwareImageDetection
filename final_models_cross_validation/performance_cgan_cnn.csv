@@ -1,0 +1,8 @@
+measure,mean,sd
+multi-acc,0.9559,0.0057
+multi-loss,0.2117,0.0364
+multi-macroF1,0.8845,0.0137
+bin-tpr,0.9764,0.0075
+bin-acc,0.9832,0.0042
+bin-f1,0.9842,0.0039
+bin-mcc,0.9664,0.0083
