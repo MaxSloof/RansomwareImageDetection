@@ -4,7 +4,10 @@ import numpy
 
 # This script goes through a list of ransomware samples (not in specific folders) with a hash string as their filename
 # It compares the hash value with the VirusTotal database. 
-# The Microsoft report for that sample is retrieved and the name of the ransomware family + a counter is given to the sample. 
+# The Microsoft report for that sample is retrieved and the name of the ransomware family + a counter is given to the sample.
+ 
+# The antivirus software provider's ransomware classification scheme used to label the samples 
+class_scheme = 'Microsoft'
 
 # Set wd
 dir = "path"                   # Path to where the ransomware files with hash as filename are located (without final "/")
@@ -51,7 +54,7 @@ for file in os.listdir(dir):
 
         # Go through each line and find where Microsoft is mentioned
         for i, line in enumerate(searchLines):
-            if "Microsoft" in line:
+            if class_scheme in line:
                 
                 # Save the fourth and fifth line after that
                 for l in searchLines[i+4:i+5]:
